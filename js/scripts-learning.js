@@ -179,4 +179,21 @@ for (let i = 0; i < ages.length; i++) {
     document.write(ages[i] - 2);
 }
 
+//functions
+
+function greeting(firstName, lastName) { //parameters
+    console.log('Hi, my name is ' + firstName + ' ' + lastName + '.');
+    document.write('Hi, my name is ' + firstName + ' ' + lastName + '.');
+}
+
+greeting('Lin', 'Shi');//arguments
+
+function math(val1, val2) {
+    return val1 + val2;
+};
+
+let answer = math(4, 9);
+
+document.write(answer);
+
 
