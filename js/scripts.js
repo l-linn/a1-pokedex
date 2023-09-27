@@ -62,7 +62,10 @@ while (i < pokemonList.length){
     i++;
 }*/
 
-let i = 0;
+
+// function 
+function printListDetails(){
+    let i = 0;
 do {
     if (pokemonList[i].height >= 0.5 && pokemonList[i].height < 1) {
         document.write(pokemonList[i].name + ' is shorter than 1 meter but higher than 0.5 meter.<br>');
@@ -77,4 +80,8 @@ do {
     i++
 }
 while (i < pokemonList.length); // 5
+};
 
+//print twice
+printListDetails();
+printListDetails();
