@@ -277,12 +277,13 @@ let allProperties = Object.keys(dog);
 console.log(allProperties);
 
 //Similar to alert(), prompt() will open up a window and allow the user to input some text
+/*
 let logIn = prompt('Please enter your name!');
 console.log(logIn);
 
 let isAccepted = confirm('Do you accept?');
 console.log(isAccepted);
-
+*/
 //dialog-type functions - alert(), confirm(), prompt()
 
 let names = ['Lin', 'Craig', 'Diego'];
@@ -294,3 +295,25 @@ names.reverse(); //change the array to D C L
 console.log(names.indexOf('Lin'));
 
 let namesCopy = names.slice();
+
+
+//forEach () method better than traditional for loop
+//forEach methos has to take a fuction as an argument 
+
+//external fuction
+ages.forEach(logToConsole);
+function logToConsole(item) {
+    console.log(item);
+}
+//internal anonymous fuction
+ages.forEach(function(item) {
+    console.log(item);
+});
+//arrow function
+ages.forEach((item, index) => console.log(item, index));
+
+//forEach() method and Object.keys()
+Object.keys(dog).forEach(dogKey => console.log(dogKey));
+Object.keys(dog).forEach(dogProperty => console.log(dog[dogProperty]));
+
+
