@@ -32,11 +32,13 @@ let pokemonRepo = (function(){
     ]
 
     function getAll() {
-        return pokemonList
+        return pokemonList;
     }
 
     function add(newPokemon) {
-        return newPokemon
+        if (typeof newPokemon === 'object') {
+            pokemonList.push(newPokemon);
+        } else {console.log('Wrong input!')};
     }
 
     return {//this is an object
@@ -62,3 +64,15 @@ function heightLoop(item){
 
 pokemonRepo.getAll().forEach(heightLoop);
 
+let newPokemon = {
+    name: 'Sealeo',
+    number: '#364',
+    height: 1.1,
+    types: ['ice',' water'],
+    evolutions: 'Spheal evolves into Sealeo at level 32',
+}
+
+pokemonRepo.add(newPokemon); //pokemonRepo.getAll().push(newPokemon) gets the same result
+pokemonRepo.add(177);
+
+pokemonRepo.getAll().forEach(heightLoop);
