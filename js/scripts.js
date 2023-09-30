@@ -137,3 +137,11 @@ function printList(list) {
 
 printList(pokemonList1);
 printList(pokemonList2);
+
+//forEach () internal anonymous fuction
+pokemonList1.forEach(function(pokemonName) {
+    document.write(pokemonName.name);
+});
+//arrow function
+pokemonList2.forEach(pokemonHeight => document.write(pokemonHeight.height));
+
