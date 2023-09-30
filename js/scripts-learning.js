@@ -267,6 +267,7 @@ let dog = {
     type: 'labrador',
     age: 8,
     name: 'Dabai',
+    puppy: false,
     speak: function() {
       console.log('Wooff! I am ' + this.name);
     }
@@ -314,6 +315,25 @@ ages.forEach((item, index) => console.log(item, index));
 
 //forEach() method and Object.keys()
 Object.keys(dog).forEach(dogKey => console.log(dogKey));
+//bracket notation has been used to access the value of each property key of the object dog
 Object.keys(dog).forEach(dogProperty => console.log(dog[dogProperty]));
 
+function getDogDescription (dog) {
+    return console.log(`My dog is ${dog.type}, he is ${dog.age} years old and his name is ${dog.name}.`);
+}
 
+//how to compose functions
+function getPupDescription (puppy) {
+    return puppy ? 'has puppy' : 'has no puppy';
+}
+function getAgeDescription (age) {
+    return age + ' years old';
+}
+function getDogDescription (dog) {
+    const ageDescription = getAgeDescription(dog.age);
+    const pupDescription = getPupDescription(dog.puppy);
+    return dog.name + ", " + dog.type + ', ' + ageDescription + ', ' + pupDescription;
+}
+console.log(getDogDescription(dog));
+
+//Immediately Invoked Function Expression (or IIFE) IIFE is a function
