@@ -36,20 +36,39 @@ let pokemonRepo = (function(){
     }
 
     function add(newPokemon) {
-        if (typeof newPokemon === 'object') {
+        if (
+            typeof newPokemon === 'object' && 
+            'name' in newPokemon &&
+            'height' in newPokemon &&
+            'types' in newPokemon
+            ) {
             pokemonList.push(newPokemon);
-        } else {console.log('Wrong input!')};
+        } else {
+            console.log('Wrong input!')
+        };
+    }
+
+    function addListItem (item){
+        let pokemonList = document.querySelector('.pokemon-list');
+        let listItem = document.createElement('li');
+        let button = document.createElement('button');
+        button.innerText = item.name;
+        button.classList.add('button-class');
+        listItem.appendChild(button); //append the button to the list item as its child.
+        pokemonList.appendChild(listItem); //append the list item to the unordered list as its child.
     }
 
     return {//this is an object
         getAll: getAll,
-        add: add
+        add: add,
+        addListItem: addListItem,
     }
 })()
 
 console.log(pokemonRepo.getAll());
-pokemonRepo.getAll().forEach(pokemon => document.write(pokemon.name + ', ' + pokemon.height + 'm, ' + 'is ' + pokemon.types + ' type<br>'));
 
+//pokemonRepo.getAll().forEach(pokemon => document.write(pokemon.name + ', ' + pokemon.height + 'm, ' + 'is ' + pokemon.types + ' type<br>'));
+/*
 function heightLoop(item){
     if (item.height >= 0.5 && item.height < 1) {
         document.write(item.name + ' is shorter than 1 meter but higher than 0.5 meter.<br>');
@@ -61,8 +80,8 @@ function heightLoop(item){
         document.write(item.name + ' is taller than 1 meter - wow that\'s big!<br>');
     };
 };
-
-pokemonRepo.getAll().forEach(heightLoop);
+*/
+//pokemonRepo.getAll().forEach(heightLoop);
 
 let newPokemon = {
     name: 'Sealeo',
@@ -75,4 +94,17 @@ let newPokemon = {
 pokemonRepo.add(newPokemon); //pokemonRepo.getAll().push(newPokemon) gets the same result
 pokemonRepo.add(177);
 
-pokemonRepo.getAll().forEach(heightLoop);
+pokemonRepo.getAll().forEach(function (item) {
+    pokemonRepo.addListItem(item)
+/*
+    if (item.height >= 0.5 && item.height < 1) {
+        document.write(item.name + ' is shorter than 1 meter but higher than 0.5 meter.<br>');
+    } else if (item.height === 1) {
+        document.write(item.name + ' is 1 meter tall.<br>');
+    } else if (item.height < 0.5) {
+        document.write(item.name + ' is shorter than 0.5 meter.<br>');
+    } else {
+        document.write(item.name + ' is taller than 1 meter - wow that\'s big!<br>');
+    };
+*/
+});
