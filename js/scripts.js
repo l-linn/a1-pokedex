@@ -28,6 +28,13 @@ let pokemonRepo = (function(){
             height: 1.7,
             types: ['fire'],
             evolutions: 'Ponyta evolves into Rapidash at level 40',
+        },
+        {
+            name: 'Togekiss',
+            number: '#468',
+            height: 1.5,
+            types: ['fairy',' flying'],
+            evolutions: 'Togetic evolves into Togekiss using a stone',
         }
     ]
 
@@ -48,15 +55,28 @@ let pokemonRepo = (function(){
         };
     }
 
+    function showDetails (item) {
+        console.log(item);
+    }
+
     function addListItem (item){
         let pokemonList = document.querySelector('.pokemon-list');
         let listItem = document.createElement('li');
         let button = document.createElement('button');
+
+        //button.addEventListener('click', () => alert('you clicked the button'));
+        button.addEventListener('click', function() {
+            console.log(item);
+        })
+
+        button.addEventListener('click', showDetails(item));
+
         button.innerText = item.name;
         button.classList.add('button-class');
         listItem.appendChild(button); //append the button to the list item as its child.
         pokemonList.appendChild(listItem); //append the list item to the unordered list as its child.
     }
+
 
     return {//this is an object
         getAll: getAll,
@@ -108,3 +128,12 @@ pokemonRepo.getAll().forEach(function (item) {
     };
 */
 });
+
+//changing color of h1 on mouseover
+let button = document.querySelector('h1');
+button.addEventListener('mouseover', function(colChange){
+    let target = colChange.target;
+    target.classList.toggle('color__light');
+    target.classList.toggle('color__dark');
+});
+
