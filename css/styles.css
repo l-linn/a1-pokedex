@@ -45,32 +45,67 @@ p, h1, h2, h3, h4, h5, h6 {
   isolation: isolate;
 }
 
+/*
+#d0e9ff	
+#ff9eae	
+#f4f4f4	
+#1e2436
+#ffeeb2*/
 
 .js {
-  border: 2px solid black;
+  font-family: 'Tourney', cursive;
+  font-size: clamp(0.rem, 2.8vw, 3rem);
+  background-color: #f9cbd0;
+  border: 2px solid #f2f2f2;
   border-radius: 5px;
   padding: 20px;
-  display: grid;
-  margin: 20%;
-  justify-content: center;
   line-height: 2.5;
-  /*font-family: 'Handjet', cursive;*/
-  font-family: 'Tourney', cursive;
-  font-size: clamp(0.8rem, 2.8vw, 3rem);
+  max-width: 60%;
+  margin-inline: auto;
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
 }
 
-.button-class {
-  background-color: brown;
-  color: whitesmoke;
-  font-weight: 600;
-  padding: 5px, 10px;
-  margin: 5px;
-  border: none;
-  border-radius: 5px;
-  width: 100%;
+ul {
+  border: 1px solid;
+  margin-inline: auto;
 }
 
 li {
-  list-style: decimal-leading-zero;
-  text-align: justify;
+  list-style: none;
+  border: 1px solid;
 }
+
+h1 {
+  border: 1px solid;
+  margin-inline: auto;
+}
+
+h1:hover {
+  cursor: pointer;
+}
+
+.color__light {
+  color: #f492a5;
+}
+
+.color__dark {
+  color: #6e82b7;
+}
+
+.button-class {
+  cursor: pointer;
+  background-color: #6e82b7;
+  color: #f2f2f2;
+  font-weight: 600;
+  padding: 5px, 10px;
+  margin: 5px;
+  border-radius: 5px;
+  border: 1px solid #f2f2f2;
+  width: 100%;
+}
+
+
+
