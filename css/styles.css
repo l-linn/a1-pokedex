@@ -54,7 +54,7 @@ p, h1, h2, h3, h4, h5, h6 {
   border-radius: 5px;
   padding: 20px;
   line-height: 2.5;
-  max-width: 60%;
+  max-width: 600px;
   margin-inline: auto;
   margin-top: 50px;
   display: grid;
@@ -64,10 +64,12 @@ p, h1, h2, h3, h4, h5, h6 {
 
 ul {
   margin-inline: auto;
+  padding: 0;
 }
 
 li {
   list-style: none;
+  padding: 0; /*get rid of the white space at the beginning*/
 }
 
 h1:hover {
