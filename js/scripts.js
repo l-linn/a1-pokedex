@@ -30,10 +30,8 @@ let pokemonRepo = (function(){
         let button = document.createElement('button');
 
         //button.addEventListener('click', () => alert('you clicked the button'));
-        button.addEventListener('click', function() {
-            showDetails(item);
-        });
-
+        button.addEventListener('click', () => showDetails(item));
+        
         button.innerText = item.name;
         button.classList.add('button-class');
         listItem.appendChild(button); //append the button to the list item as its child.
