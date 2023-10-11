@@ -44,32 +44,54 @@ p, h1, h2, h3, h4, h5, h6 {
 #root, #__next {
   isolation: isolate;
 }
-/*#f2f2f2 #f4f4f4 #f9cbd0 #1e2436
+/* https://www.schemecolor.com/dragonite-pokemon.php
 */
 
-.js {
+body {
+  background-color: #F8EED3; 
   font-family: 'Tourney', cursive;
   font-size: clamp(0.rem, 2.8vw, 3rem);
-  background-color: #ffeeb2; 
-  border-radius: 5px;
-  padding: 20px;
   line-height: 2.5;
-  max-width: 600px;
+  padding: 20px;
   margin-inline: auto;
-  margin-top: 50px;
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: center;
 }
 
-ul {
+.pokemon-list {
+  border: 2px solid #F1B46D;
   margin-inline: auto;
   padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+}
+
+@media all and (min-width: 500px){
+  .pokemon-list{
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  }
+}
+
+@media all and (min-width: 800px){
+  .pokemon-list{
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  }
+}
+
+@media all and (min-width: 1100px){
+  .pokemon-list{
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  }
 }
 
 li {
+  border-right: 2px solid #F1B46D;
+  border-bottom: 2px solid #F1B46D;
   list-style: none;
   padding: 0; /*get rid of the white space at the beginning*/
+  display: flex;
 }
 
 h1:hover {
@@ -77,22 +99,31 @@ h1:hover {
 }
 
 .color__light {
-  color: #f492a5;
+  color: #F1B46D;
   text-align: center;
 }
 
 .color__dark {
-  color: #6e82b7;
+  color: #31AE9D;
   text-align: center;
 }
 
 .button-class {
   cursor: pointer;
-  background-color: #6e82b7;
-  color: #f2f2f2;
+  background-color: #31AE9D;
+  color: #F8EED3;
   font-weight: 600;
   margin: 5px;
   border-radius: 5px;
-  border: 1px solid #f2f2f2;
+  border: 2px solid #1d695f;
   width: 100%;
+  padding: 0;
+}
+
+.button-class:hover {
+  background-color: #F1B46D;
+  opacity: 0.8;
+}
+.img-class{
+  padding: 0;
 }
