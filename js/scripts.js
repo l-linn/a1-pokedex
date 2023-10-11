@@ -100,9 +100,9 @@ pokemonRepo.loadList().then(function(){
 });
 
 //changing color of h1 on mouseover
-let button = document.querySelector('h1');
+/*let button = document.querySelector('.title');
 button.addEventListener('mouseover', function(colChange){
     let target = colChange.target;
     target.classList.toggle('color__light');
     target.classList.toggle('color__dark');
-});
+});*/
