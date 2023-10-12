@@ -2,11 +2,7 @@
 let pokemonRepo = (function(){
     let pokemonList = [];
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/';
-
-    function getAll(){
-        return pokemonList;
-    }
-
+    
     function add(newPokemon){
         if (
             typeof newPokemon === 'object' && 
@@ -17,42 +13,7 @@ let pokemonRepo = (function(){
             console.log('Wrong input!')
         };
     }
-
-    function showDetails(pokemon){
-        loadDetails(pokemon).then(function(){
-          console.log(pokemon);
-          //let pokemonHeight = pokemon.height;
-          //document.write(pokemonHeight); this opens a new window
-        });
-    }
-
-    function addListItem(item){
-
-        loadDetails(item).then(function(){
-            let img = document.createElement('img');
-            let imgSrc = item.imageUrl; //item.detailsUrl is the link to the image;
-            img.src = imgSrc;
-            img.classList.add('img-class');
-            listItem.appendChild(img);
-        })
-
-        let pokemonList = document.querySelector('.pokemon-list');
-        let listItem = document.createElement('li');
-        let button = document.createElement('button');
-        //if I want to add multipul items inside the button:
-        //let name = document.createElement('p');
-        //name.innerText = item.name;//display pokemon's name
-        //name.classList.add('name-class');
-        //button.appendChild(name);
-
-        button.innerText = item.name;
-        button.classList.add('button-class');
-        pokemonList.appendChild(listItem); //append the list item to the unordered list as its child.
-        listItem.appendChild(button); //append the button to the list item as its child.
-        //button.addEventListener('click', () => alert('you clicked the button'));
-        button.addEventListener('click', () => showDetails(item));
-    }
-
+    
     function loadList(){
         return fetch(apiUrl).then(function(response){
             return response.json();
@@ -75,34 +36,89 @@ let pokemonRepo = (function(){
         return fetch(url).then(function(response){// to fetch the url inside each pokemon object
             //console.log(response);
             return response.json();//this returns a promise
-        }).then(function(details){
+        }).then(function(details){//adding details
             addedPokemon.imageUrl = details.sprites.front_default;
             addedPokemon.height = details.height;
             addedPokemon.types = details.types;
         }).catch(() => console.error(e));
     }
 
-    return {//this is an object
+    function getAll(){
+        return pokemonList;
+    }
+
+    /*function showDetails(pokemon){
+        loadDetails(pokemon).then(function(){
+            let height = document.createElement('p');
+            height.innerText = pokemon.height;//display pokemon's height
+            height.classList.add('height-class');
+            //console.log(pokemon);
+            //let pokemonHeight = pokemon.height;
+            //document.write(pokemonHeight); this opens a new window
+        });
+    }*/
+
+    function addListItem(item){
+        loadDetails(item).then(function(){
+            let img = document.createElement('img');
+            let imgSrc = item.imageUrl; //item.detailsUrl is the link to the image;
+            img.src = imgSrc;
+            img.classList.add('img-class');
+            listItem.appendChild(img);
+            let height = document.createElement('p');
+            height.innerText = 'is ' + item.height +'m tall';//display pokemon's height
+            height.classList.add('height-class');
+            //button.addEventListener('click', () => button.appendChild(height));
+            //button.addEventListener('mouseover', () => height.parentElement.removeChild(height));
+
+            button.addEventListener('click', () => {
+                if(button.contains(height)){
+                    height.parentElement.removeChild(height);
+                }else {
+                    button.appendChild(height);
+                }
+            });
+
+        })
+
+        let pokemonList = document.querySelector('.pokemon-list');
+        let listItem = document.createElement('li');
+        let button = document.createElement('button');
+
+        //if I want to add multipul items inside the button:
+
+
+        button.innerText = item.name;
+        button.classList.add('button-class');
+        pokemonList.appendChild(listItem); //append the list item to the unordered list as its child.
+        listItem.appendChild(button); //append the button to the list item as its child.
+       
+        //button.addEventListener('click', () => alert('you clicked the button'));
+        
+    }
+
+    return { //this is an object
         getAll: getAll,
         add: add,
         addListItem: addListItem,
         loadList: loadList,
         loadDetails: loadDetails
     };
+    
 })();
 
 //console.log(pokemonRepo.getAll());
-
 pokemonRepo.loadList().then(function(){
     pokemonRepo.getAll().forEach(function(pokemon){
         pokemonRepo.addListItem(pokemon);
     });
 });
 
-//changing color of h1 on mouseover
-/*let button = document.querySelector('.title');
-button.addEventListener('mouseover', function(colChange){
-    let target = colChange.target;
-    target.classList.toggle('color__light');
-    target.classList.toggle('color__dark');
-});*/
+/*You could also opt to implement the following functionality:
+
+Display a loading message while data is being loaded. 
+To do this, implement a showLoadingMessage() and hideLoadingMessage() function, 
+which appends/removes a message to your page. 
+Hint #1: showLoadingMessage() should be the first thing executed inside both the LoadList() and loadDetails() functions. 
+Hint #2: hideLoadingMessage() should be executed in the then and catch blocks of the fetch code of both LoadList() and loadDetails(). 
+This makes sense because once you’re inside then or catch, it means you’ve received the response from the fetch code and can hide the loading message.*/
