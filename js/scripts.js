@@ -114,6 +114,7 @@ pokemonRepo.loadList().then(function(){
     });
 });
 
+
 /*You could also opt to implement the following functionality:
 
 Display a loading message while data is being loaded. 
@@ -122,3 +123,8 @@ which appends/removes a message to your page.
 Hint #1: showLoadingMessage() should be the first thing executed inside both the LoadList() and loadDetails() functions. 
 Hint #2: hideLoadingMessage() should be executed in the then and catch blocks of the fetch code of both LoadList() and loadDetails(). 
 This makes sense because once you’re inside then or catch, it means you’ve received the response from the fetch code and can hide the loading message.*/
+
+/*If you’re feeling truly adventurous,
+you can take a look at how the filter() function works 
+and create a whole new public function for pokemonRepository 
+that allows you to find specific Pokémon only by name. */
