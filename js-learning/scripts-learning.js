@@ -568,9 +568,3 @@ button.addEventListener('mouseover', function(colChange){
     target.classList.toggle('color__light');
     target.classList.toggle('color__dark');
 });*/
-
-button.addEventListener('click', function(messageShowHide){
-    let target = messageShowHide.target;
-    target.toggle('appendChild(height)');
-    target.toggle('removeChild(height)');
-});
