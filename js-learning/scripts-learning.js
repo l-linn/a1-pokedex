@@ -560,3 +560,17 @@ examplePromise().then(function(result){
 });
 
 console.log('another piece of code');
+
+//switching between colors of h1 on mouseover
+/*let button = document.querySelector('.title');
+button.addEventListener('mouseover', function(colChange){
+    let target = colChange.target;
+    target.classList.toggle('color__light');
+    target.classList.toggle('color__dark');
+});*/
+
+button.addEventListener('click', function(messageShowHide){
+    let target = messageShowHide.target;
+    target.toggle('appendChild(height)');
+    target.toggle('removeChild(height)');
+});
