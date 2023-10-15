@@ -71,6 +71,7 @@ let pokemonRepo = (function(){
             return response.json();
         }).then(function(json){
             json.results.forEach(function(item){
+                console.log(item);
                 let pokemon = {
                     name: item.name,
                     detailsUrl: item.url,
@@ -124,8 +125,15 @@ let pokemonRepo = (function(){
         let pokemonList = document.querySelector('.pokemon-list');
         let listItem = document.createElement('li');
         let button = document.createElement('button');
-
         button.innerText = item.name;
+
+        // fetch(item.detailsUrl).then(function(response){// to fetch the url inside each pokemon object
+        //     //console.log(response);
+        //     return response.json();//this returns a promise
+        // }).then(function(details){//adding details
+        //     button.innerHTML = '<img src="'+details.sprites.front_default+'"> <span class="img-text">'+item.name+'</span>';
+        // }).catch(() => console.error(e));
+
         button.classList.add('button-class');
         pokemonList.appendChild(listItem); //append the list item to the unordered list as its child.
         listItem.appendChild(button); //append the button to the list item as its child.
