@@ -138,9 +138,6 @@ h1:hover {
   opacity: 0.8;
 }
 
-.img-class{
-  padding: 0;
-}
 
 /*.img-text {
   margin-top: 20px;
@@ -170,7 +167,8 @@ h1:hover {
 .modal {
   margin: auto;
   display: grid;
-  grid-template-columns: 1fr 1.5fr 2fr;
+  grid-template-columns: 1fr 1fr 2fr;
+  grid-gap: 25px;
   justify-content: center;
   align-items: center;
   border-radius: 5px;
