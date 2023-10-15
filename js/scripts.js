@@ -151,6 +151,7 @@ pokemonRepo.loadList().then(function(){
     });
 });
 
+
 /*You could also opt to implement the following functionality:
 
 Display a loading message while data is being loaded. 
