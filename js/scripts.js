@@ -13,9 +13,10 @@ let pokemonRepo = (function(){
             img.classList.add('img-class');
 
             //creat text for pokemon height
-            let height = document.createElement('p');
-            height.innerText = item.name + ' is ' + item.height +'m tall';//display pokemon's height
-            height.classList.add('height-class');
+            let text = document.createElement('p');
+            //text.innerText = item.name + ' is ' + item.height +'cm tall' +' and weights ' + item.weight + 'gm.';//display pokemon's height
+            text.innerHTML = '<p>'+item.name+'</p> <p>height: '+item.height+'</p> <p>weight: '+item.weight+'</p>'
+            text.classList.add('text-class');
 
             modalContainer.innerHTML = '';
 
@@ -28,7 +29,7 @@ let pokemonRepo = (function(){
             closeButton.addEventListener('click', hideModal);
 
             modal.appendChild(img);
-            modal.appendChild(height);
+            modal.appendChild(text);
             modal.appendChild(closeButton);
             modalContainer.appendChild(modal);
 
@@ -93,6 +94,7 @@ let pokemonRepo = (function(){
             addedPokemon.imageUrl = details.sprites.front_default;
             addedPokemon.height = details.height;
             addedPokemon.types = details.types;
+            addedPokemon.weight = details.weight;
         }).catch(() => console.error(e));
     }
 
