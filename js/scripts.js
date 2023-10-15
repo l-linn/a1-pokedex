@@ -2,6 +2,56 @@
 let pokemonRepo = (function(){
     let pokemonList = [];
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/';
+    let modalContainer = document.querySelector('#modal-container');
+
+    function showDetails(item){
+        loadDetails(item).then(function(){
+            //create img
+            let img = document.createElement('img');
+            let imgSrc = item.imageUrl; //item.detailsUrl is the link to the image;
+            img.src = imgSrc;
+            img.classList.add('img-class');
+
+            //creat text for pokemon height
+            let height = document.createElement('p');
+            height.innerText = item.name + ' is ' + item.height +'m tall';//display pokemon's height
+            height.classList.add('height-class');
+
+            modalContainer.innerHTML = '';
+
+            let modal = document.createElement('div');
+            modal.classList.add('modal'); //add class name modal to the div just created
+
+            let closeButton = document.createElement('button');
+            closeButton.classList.add('modal-close');
+            closeButton.innerText = 'Close';
+            closeButton.addEventListener('click', hideModal);
+
+            modal.appendChild(img);
+            modal.appendChild(height);
+            modal.appendChild(closeButton);
+            modalContainer.appendChild(modal);
+
+            modalContainer.classList.add('is-visible');
+
+            function hideModal(){
+                modalContainer.classList.remove('is-visible');
+            }
+
+            window.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')){
+                    hideModal();
+                }
+            });
+
+            modalContainer.addEventListener('click', (e) => {
+                let target = e.target;
+                if (target === modalContainer){
+                    hideModal();
+                }
+            })
+        });
+    }
     
     function add(newPokemon){
         if (
@@ -47,19 +97,8 @@ let pokemonRepo = (function(){
         return pokemonList;
     }
 
-    /*function showDetails(pokemon){
-        loadDetails(pokemon).then(function(){
-            let height = document.createElement('p');
-            height.innerText = pokemon.height;//display pokemon's height
-            height.classList.add('height-class');
-            //console.log(pokemon);
-            //let pokemonHeight = pokemon.height;
-            //document.write(pokemonHeight); this opens a new window
-        });
-    }*/
-
     function addListItem(item){
-        loadDetails(item).then(function(){
+        /*loadDetails(item).then(function(){
             let img = document.createElement('img');
             let imgSrc = item.imageUrl; //item.detailsUrl is the link to the image;
             img.src = imgSrc;
@@ -78,15 +117,11 @@ let pokemonRepo = (function(){
                     button.appendChild(height);
                 }
             });
-
-        })
+        })*/
 
         let pokemonList = document.querySelector('.pokemon-list');
         let listItem = document.createElement('li');
         let button = document.createElement('button');
-
-        //if I want to add multipul items inside the button:
-
 
         button.innerText = item.name;
         button.classList.add('button-class');
@@ -94,7 +129,7 @@ let pokemonRepo = (function(){
         listItem.appendChild(button); //append the button to the list item as its child.
        
         //button.addEventListener('click', () => alert('you clicked the button'));
-        
+        button.addEventListener('click', () => showDetails(item));
     }
 
     return { //this is an object
