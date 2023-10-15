@@ -46,8 +46,10 @@ let pokemonRepo = (function(){
 
             modalContainer.addEventListener('click', (e) => {
                 let target = e.target;
-                if (target === modalContainer){
+                if (target === closeButton){
                     hideModal();
+                } else if (target === modalContainer && target !== modal){
+                    alert('There is a close button!');
                 }
             })
         });
