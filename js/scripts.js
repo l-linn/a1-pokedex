@@ -126,6 +126,7 @@ let pokemonRepo = (function(){
 
         let pokemonList = document.querySelector('.pokemon-list');
         let listItem = document.createElement('li');
+        listItem.classList.add('list-group-item')
         let button = document.createElement('button');
         button.innerText = item.name;
 
@@ -136,7 +137,8 @@ let pokemonRepo = (function(){
         //     button.innerHTML = '<img src="'+details.sprites.front_default+'"> <span class="img-text">'+item.name+'</span>';
         // }).catch(() => console.error(e));
 
-        button.classList.add('button-class');
+        button.classList.add('btn-info');
+        button.classList.add('btn');
         pokemonList.appendChild(listItem); //append the list item to the unordered list as its child.
         listItem.appendChild(button); //append the button to the list item as its child.
        
