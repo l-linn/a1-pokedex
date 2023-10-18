@@ -1,189 +1,28 @@
-/*
-  1. Use a more-intuitive box-sizing model.
-*/
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-/*
-  2. Remove default margin
-*/
-* {
-  margin: 0;
-}
-/*
-  Typographic tweaks!
-  3. Add accessible line-height
-  4. Improve text rendering
-*/
 body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-}
-/*
-  5. Improve media defaults
-*/
-img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
-}
-/*
-  6. Remove built-in form typography styles
-*/
-input, button, textarea, select {
-  font: inherit;
-}
-/*
-  7. Avoid text overflows
-*/
-p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
-}
-/*
-  8. Create a root stacking context
-*/
-#root, #__next {
-  isolation: isolate;
-}
-/* https://www.schemecolor.com/dragonite-pokemon.php
-*/
-
-body {
-  background-color: #F8EED3; 
+  background-color: #d8ddd1; 
   font-family: 'Luckiest Guy', cursive;
-  font-size: clamp(0.rem, 2.8vw, 3rem);
-  line-height: 2.5;
-  padding: 90px 40px;
-  margin-inline: auto;
 }
 
-.pokemon-list {
-  margin-inline: auto;
+ul {
   padding: 0;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto;
-}
-
-@media all and (min-width: 550px){
-  .pokemon-list{
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-  }
-}
-
-@media all and (min-width: 800px){
-  .pokemon-list{
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto;
-  }
-}
-
-@media all and (min-width: 1050px){
-  .pokemon-list{
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto;
-  }
+  background-color: #7da343; 
+  padding: 30px;
+  border-radius: 10px;
+  margin-top: 10px;
 }
 
 li {
-  list-style: none;
-  padding: 0; /*get rid of the white space at the beginning*/
-  display: flex;
+  padding-bottom: 10px;
 }
 
-.title {
-  display: flex;
-  gap: 20px;
-  align-items: end;
-  justify-content: center;
-  color: #f69e3a;
-  text-align: center;
-  padding: 10px;
+.modal-content {
+  background-color: #c0cdac;
 }
 
-h1 {
-  margin-bottom: 0;
+.navbar {
+  margin-top: 30px;
 }
 
-/*.button-class {
-  cursor: pointer;
-  background-color: #31AE9D;
-  color: #F8EED3;
-  font-weight: 600;
-  margin: 5px;
-  border: 2px solid #1d695f;
-  width: 100%;
-  padding: 0;
-  border-radius: 10px;
-
-}*/
-
-/*.button-class:hover {
-  background-color: #F1B46D;
-  color: #1d695f;
-  opacity: 0.8;
-}*/
-
-
-/*.img-text {
-  margin-top: 20px;
-}*/
-
-#modal-container {
-  display: none;
+.navbar img {
+  padding-right: 10px;
 }
-
-#modal-container.is-visible {
-  position: fixed;
-  padding: 20px;
-  top: 0;
-  left: 00;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  /* to show it above other content */
-  z-index: 999; 
-  /* to allow scrolling if the screen is not high enough*/
-  overflow: auto; 
-  /* this is used to center the modal */
-  display: grid;
-  text-align: center;
-}
-
-.modal {
-  margin: auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr 2fr;
-  grid-gap: 25px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5px;
-  background: #F8EED3;
-  padding: 15px;
-  text-align: left;
-}
-
-.modal-close {
-  cursor: pointer;
-  align-self: self-start;
-  justify-self: end;
-  border: 0;
-  background: none;
-  color: #31AE9D;
-  text-decoration: underline;
-  text-align: right;
-  width: max-content;
-}
-
-
-
-
-/*.color__light {
-
-}
-
-.color__dark {
-  background-color: #F1B46D;
-  color: #31AE9D;
-  text-align: center;
-}*/
