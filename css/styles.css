@@ -7,7 +7,7 @@ ul {
   padding: 0;
   background-color: #7da343; 
   padding: 30px;
-  border-radius: 10px;
+  border-radius: 5px;
   margin-top: 10px;
 }
 
@@ -16,13 +16,21 @@ li {
 }
 
 .modal-content {
-  background-color: #c0cdac;
+  background-color: #c6acb1;
 }
 
-.navbar {
-  margin-top: 30px;
+.pos-f-t {
+  margin-bottom: 10px;
 }
 
 .navbar img {
   padding-right: 10px;
+}
+
+.first-color {
+  background-color: #7da343; 
+}
+
+.second-color {
+  background-color: #cc929e; 
 }
