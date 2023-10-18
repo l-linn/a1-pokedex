@@ -107,3 +107,13 @@ pokemonRepo.loadList().then(function(){
         pokemonRepo.addListItem(pokemon);
     });
 });
+
+(function(){
+    let bgColorChange = document.querySelector('.navbar-brand');
+    let bg = document.querySelector('ul');
+
+    bgColorChange.addEventListener('mouseover', () => {
+        bg.classList.toggle('first-color');
+        bg.classList.toggle('second-color');
+    });
+})();
