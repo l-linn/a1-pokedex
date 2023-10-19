@@ -8,11 +8,9 @@ let pokemonRepo = (function(){
             let img = document.createElement('img');
             let imgSrc = item.imageUrl; //item.detailsUrl is the link to the image;
             img.src = imgSrc;
-            //save name
-            let itemName = item.name;
             //creat text for pokemon height and weight
             let text = document.createElement('p');
-            text.innerHTML = '<p>height: '+item.height+'</p> <p>weight: '+item.weight+'</p>'
+            text.innerHTML = '<p>height: '+item.height+'</p> <p>weight: '+item.weight+'</p> <p>type: '+item.type+'</p>'//why only return the second not all value?
             //modal select the modal container from html
             let modalBody = $('.modal-body');
             let modalTitle = $ ('.modal-title');
@@ -20,7 +18,7 @@ let pokemonRepo = (function(){
             modalBody.empty();
             modalTitle.empty();
             //add elements
-            modalTitle.append(itemName);
+            modalTitle.append(item.name);
             modalBody.append(img);
             modalBody.append(text);
         });
@@ -61,8 +59,15 @@ let pokemonRepo = (function(){
         }).then(function(details){
             addedPokemon.imageUrl = details.sprites.front_default;
             addedPokemon.height = details.height;
-            addedPokemon.types = details.types;
             addedPokemon.weight = details.weight;
+            let typeDetails = details.types;
+            console.log(typeDetails);
+            typeDetails.forEach(item => {
+                let typeName = item.type.name;
+                //console.log(typeName);
+                addedPokemon.type = typeName;
+                console.log(addedPokemon.type);
+            });
         }).catch(() => console.error(e));
     }
 
