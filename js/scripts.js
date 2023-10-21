@@ -116,7 +116,6 @@ pokemonRepo.loadList().then(function(){
 (function(){
     let bgColorChange = document.querySelector('.navbar-brand, nav img');
     let bg = document.querySelector('ul');
-
     bgColorChange.addEventListener('mouseover', () => {
         bg.classList.toggle('first-color');
         bg.classList.toggle('second-color');
