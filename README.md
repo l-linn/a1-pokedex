@@ -11,4 +11,3 @@ a small web application with HTML, CSS, and JavaScript that loads data from an e
 
 tools leant: Javascript, jQuery, Bootstrap, 
 other concept: ajax, json, external APIs
-
