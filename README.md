@@ -8,3 +8,5 @@
 ## Description: 
 
 a small web application with HTML, CSS, and JavaScript that loads data from an external API, in this case, the [Pokemon API](https://pokeapi.co/) and enables the viewing of data points in detail.
+
+
