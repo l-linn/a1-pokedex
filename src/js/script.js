@@ -114,11 +114,14 @@ pokemonRepo.loadList().then(function(){
 });
 
 (function(){
-    let bgColorChange = document.querySelector('.navbar-brand');
+    let bgColorChange = document.querySelectorAll('.navbar-brand');
     let bg = document.querySelector('ul');
+    console.log(bgColorChange);
 
-    bgColorChange.addEventListener('mouseover', () => {
-        bg.classList.toggle('first-color');
-        bg.classList.toggle('second-color');
-    });
+    bgColorChange.forEach(item => {
+        item.addEventListener('mouseover', () => {
+            bg.classList.toggle('first-color');
+            bg.classList.toggle('second-color');
+        });
+    })
 })();
